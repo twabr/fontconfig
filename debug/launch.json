@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug fontcons",
+        "program": "${workspaceFolder}/fontcons", // 可执行文件路径
+        "cwd": "${workspaceFolder}",
+        "environment": [
+          {
+            "name": "LD_LIBRARY_PATH",
+            "value": "/home/wangyao/fontconfig/fontconfig-install/lib"
+          }
+        ],
+        "sourceFileMap": {
+          "/home/wangyao/fontconfig/fontconfig-install": "${workspaceFolder}"
+        },
+        "preLaunchTask": "build fontcons" // 构建任务名称
+      }
+    ]
+}
+  

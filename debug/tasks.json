@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build fontcons",
+        "type": "shell",
+        "command": "gcc",
+        "args": [
+          "-o", "fontcons", "-g", "./debug/fontcons.c",
+          "-I/home/wangyao/fontconfig/fontconfig-install/include",
+          "-L/home/wangyao/fontconfig/fontconfig-install/lib",
+          "-lfontconfig", "-Wl,-rpath=/home/wangyao/fontconfig/fontconfig-install/lib",
+          "-DFC_DEBUG"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  

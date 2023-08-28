@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>FontConfig Example</title>
+    <script src="fontcons.js"></script>
+    <script>
+        // 调用 WebAssembly 函数，传递路径参数
+        Module.onRuntimeInitialized = function () 
+        {
+            var fontsConfPath = "/home/wangyao/tools/fonts.conf";  // 直接指定文件名
+            var init_fontconfig = Module.cwrap("init_fontconfig", 'number', ['string']);
+            var getFont = Module.cwrap("getFont", 'number', []);
+
+            init_fontconfig(fontsConfPath);
+            var result = getFont();
+            if (result) 
+            {
+                console.log("found");
+                console.log("getFont:", getFont);
+            } else 
+            {
+                console.log("not found");
+            }
+        };
+
+    </script>
+</head>
+<body>
+</body>
+</html>
